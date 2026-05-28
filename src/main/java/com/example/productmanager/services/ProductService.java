@@ -15,4 +15,8 @@ public class ProductService {
     public List<Product> getAllproducts(){
         return pr.findAll();
     }
+
+    public Product createProduct(Product newProduct){
+        return pr.save(newProduct);
+    }
 }

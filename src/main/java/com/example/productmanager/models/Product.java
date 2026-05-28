@@ -20,7 +20,7 @@ public class Product {
     private Long id;
 
     private String productName;
-    private String Description;
+    private String description;
     private BigDecimal price;
     private int quantity;
 
@@ -29,7 +29,7 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", productName='" + productName + '\'' +
-                ", Description='" + Description + '\'' +
+                ", Description='" + description + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
                 '}';
