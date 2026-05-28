@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("products")
 @RequiredArgsConstructor
@@ -34,6 +36,20 @@ public class ProductController {
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Long id){
         ps.deleteProduct(id);
+        return "redirect:/products";
+    }
+
+    @GetMapping("/update/{id}")
+    public String updateProduct(@PathVariable("id") Long id, Model model){
+        Optional<Product> productOptional = ps.getProductById(id);
+        productOptional.ifPresent(updateProduct ->
+                model.addAttribute("updateProduct", updateProduct));
+        return "FormUpdateProduct";
+    }
+
+    @PostMapping("save")
+    public String saveUpdateProduct(@ModelAttribute("updateProduct") Product product){
+        ps.createProduct(product);
         return "redirect:/products";
     }
 }

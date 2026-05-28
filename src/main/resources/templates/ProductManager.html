@@ -27,6 +27,7 @@
             <td th:text="${p.getPrice()}"></td>
             <td th:text="${p.getQuantity()}"></td>
             <td>
+                <a th:href="'/products/update/' + ${p.getId()}">Cập nhật</a>
                 <a th:href="'/products/delete/' + ${p.getId()}">Xóa</a>
             </td>
         </tr>
