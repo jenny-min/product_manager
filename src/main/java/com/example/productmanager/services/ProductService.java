@@ -19,4 +19,8 @@ public class ProductService {
     public Product createProduct(Product newProduct){
         return pr.save(newProduct);
     }
+
+    public void deleteProduct(Long id){
+        pr.deleteById(id);
+    }
 }

@@ -15,6 +15,7 @@
             <th>Miêu tả sản phẩm</th>
             <th>Giá</th>
             <th>Số lượng</th>
+            <th>Thao tác</th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +26,9 @@
             <td th:text="${p.getDescription()}"></td>
             <td th:text="${p.getPrice()}"></td>
             <td th:text="${p.getQuantity()}"></td>
+            <td>
+                <a th:href="'/products/delete/' + ${p.getId()}">Xóa</a>
+            </td>
         </tr>
         </tbody>
     </table>

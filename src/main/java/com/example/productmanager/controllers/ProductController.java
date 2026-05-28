@@ -5,10 +5,7 @@ import com.example.productmanager.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("products")
@@ -31,6 +28,12 @@ public class ProductController {
     @PostMapping()
     public String saveProduct(@ModelAttribute("product") Product product){
         ps.createProduct(product);
+        return "redirect:/products";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable Long id){
+        ps.deleteProduct(id);
         return "redirect:/products";
     }
 }
