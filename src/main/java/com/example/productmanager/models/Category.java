@@ -18,4 +18,13 @@ public class Category {
     private Long id;
     private String categoryName;
     private String description;
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", categoryName='" + categoryName + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

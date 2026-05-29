@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo mới Danh mục</title>
+</head>
+<body>
+    <h1>FORM TẠO MỚI DANH MỤC</h1>
+    <form th:object="${category}" th:action="@{/categories}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <input th:field="*{categoryName}" type="text" placeholder="Nhập danh mục mới">
+        <input  th:field="*{description}" type="text" placeholder="Nhập miêu tả danh mục">
+        <button type="submit">Lưu</button>
+    </form>
+</body>
+</html>
