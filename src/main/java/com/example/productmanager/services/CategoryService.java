@@ -19,4 +19,8 @@ public class CategoryService {
     public Category addCategory(Category newCategory){
         return cr.save(newCategory);
     }
+
+    public void deleteCategory(Long id){
+        cr.deleteById(id);
+    }
 }
