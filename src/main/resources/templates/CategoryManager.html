@@ -23,7 +23,7 @@
                 <td th:text="${c.getCategoryName()}"></td>
                 <td th:text="${c.getDescription()}"></td>
                 <td>
-                    <a>Cập nhật</a>
+                    <a th:href="'/categories/update/' + ${c.getId()}">Cập nhật</a>
                     <a th:href="'/categories/delete/' + ${c.getId()}">Xóa</a>
                 </td>
             </tr>

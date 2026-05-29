@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("categories")
 @RequiredArgsConstructor
@@ -34,6 +36,19 @@ public class CategoryController {
     @GetMapping("/delete/{id}")
     private String deleteCategory(@PathVariable Long id){
         cs.deleteCategory(id);
+        return "redirect:/categories";
+    }
+
+    @GetMapping("/update/{id}")
+    private String createCategory(@PathVariable("id") Long id, Model model){
+        Optional<Category> categoryOptional = cs.getCategoryById(id);
+        categoryOptional.ifPresent(category -> model.addAttribute("updateCategory", category));
+        return "FormUpdateCategory";
+    }
+
+    @PostMapping("save")
+    private String saveUpdateCategory(@ModelAttribute("category") Category category){
+        cs.addCategory(category);
         return "redirect:/categories";
     }
 }
